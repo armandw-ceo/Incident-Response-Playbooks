@@ -34,7 +34,7 @@
 | Field        | Value                          |
 |--------------|--------------------------------|
 | Incident Type| Phishing Email                 |
-| Severity     | [Low / Medium (depending on user interaction|
-| TLP Label    | [TLP:AMBER                    |
-| Last Updated | 2025-05-15                    |
-| Author       | Armand Williams               |
+| Severity     | Low / Medium (depending on user interaction)|
+| TLP Label    | TLP:AMBER                      |
+| Last Updated | 2025-05-15                     |
+| Author       | Armand Williams                |
