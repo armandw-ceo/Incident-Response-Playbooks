@@ -35,6 +35,6 @@
 |--------------|--------------------------------|
 | Incident Type| Phishing Email                 |
 | Severity     | Low / Medium (depending on user interaction)|
-| TLP Label    | TLP:AMBER                      |
+| TLP Label    | TLP:CLEAR                      |
 | Last Updated | 2025-05-16                     |
 | Author       | Armand Williams                |
