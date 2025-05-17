@@ -35,6 +35,6 @@
 |--------------|--------------------------------|
 | Incident Type| [Phishing, Malware, etc.]     |
 | Severity     | [Low / Medium / High / Critical] |
-| TLP Label    | [TLP:WHITE / GREEN / AMBER]   |
+| TLP Label    | [TLP:WHITE / GREEN / AMBER /CLEAR]   |
 | Last Updated | [YYYY-MM-DD]                  |
 | Author       | [Your Name or Team]           |
