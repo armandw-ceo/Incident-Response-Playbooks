@@ -14,4 +14,5 @@ Contents
 
 | Playbook | Description |
 |----------|-------------|
-| phishing-email.md | Handle Phishing email reports and user-submitted threats. |
+| phishing-email.md             | Handle Phishing email reports and user-submitted threats. |
+| Malware-Infection-Playbook.md |
