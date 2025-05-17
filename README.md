@@ -14,14 +14,14 @@ This repository provides step-by-step guidance on handling different types of in
 
 | Playbook | Description |
 |----------|-------------|
-| [Phishing Email](./Phishing-Email.md)         | Handle Phishing email reports and user-submitted threats. |
-| Malware-Infection-Playbook.md | Handle malware infection alerts/incidents   |
+| [Phishing Email Playbook](./Phishing-Email.md)         | Handle Phishing email reports and user-submitted threats. |
+| [Malware Infection Playbook](./Malware-Infection-Playbook.md) | Handle malware infection alerts/incidents   |
 
 ---
 
 ## Template
 
-To keep playbooks consistent, use the playbook-template.md file when drafting a new one.
+To keep playbooks consistent, use the [Playbook Template](./playbook-template.md) file when drafting a new one.
 
 ---
 
