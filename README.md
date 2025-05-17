@@ -21,7 +21,7 @@ This repository provides step-by-step guidance on handling different types of in
 
 ## Template
 
-To keep playbooks consistent, use the ['playbook-template.md'] (./Incident-Response-Playbooks/playbook-template.md) file when drafting a new one.
+To keep playbooks consistent, use the playbook-template.md file when drafting a new one.
 
 ---
 
@@ -37,4 +37,4 @@ Incident response is about speed, clarity, and consistency. Playbooks are good b
 
 ## Author
 **Armand Williams** | Cybersecurity Professional
-
+[LinkedIn](www.linkedin.com/in/armand-williams) | [GitHub](https://github.com/armandw-ceo)
