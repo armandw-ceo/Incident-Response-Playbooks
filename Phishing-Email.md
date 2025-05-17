@@ -1,31 +1,40 @@
 # Phishing Email Incident Response Playbook
 
-## Detection
+## 1. Detection
 - User reported suspicious email
 - Alert triggered by email filter
 
-## Investigation
+## 2. Investigation
 - Review email headers
 - Review email body
 - Sandbox URLs and attachments
 - Review logs for user clicks/interactionswho
 
-## Containment
+## 3. Containment
 - Block sender/domain at the email gateway
 - Block malicious links
 - Quarantine emails
 - Notify impacted users if any
 
-## Eradication
+## 4. Eradication
 - Remove phishing email from all inboxes
 - Patch any exploited systems if needed
 
-## Recovery
+## 5. Recovery
 - Monitor user systems for abnormal behavior
 - Reinforce email security policies
 - Update playbook
 
-## Lessons Learned
+## 6. Lessons Learned
 - Update detection rules
 - Phishing awareness training
 - Document IOCs and update threat internal feeds
+
+## Metadata
+| Field        | Value                          |
+|--------------|--------------------------------|
+| Incident Type| Phishing Email                 |
+| Severity     | [Low / Medium (depending on user interaction|
+| TLP Label    | [TLP:AMBER                    |
+| Last Updated | 2025-05-15                    |
+| Author       | Armand Williams               |
