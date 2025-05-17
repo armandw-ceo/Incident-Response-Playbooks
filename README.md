@@ -10,9 +10,31 @@ This repository provides step-by-step guidance on handling different types of in
 
 ---
 
-Contents
+## Contents
 
 | Playbook | Description |
 |----------|-------------|
 | Phishing-Email.md             | Handle Phishing email reports and user-submitted threats. |
 | Malware-Infection-Playbook.md | Handle malware infection alerts/incidents                 |
+
+---
+
+## Template
+
+To keep playbooks consistent, use the ['playbook-template.md'] (./Incident-Response-Playbooks/playbook-template.md) file when drafting a new one.
+
+---
+
+## Why are incident response playbooks important
+
+Incident response is about speed, clarity, and consistency. Playbooks are good because they:
+- Improve response time
+- Reduce analyst confusion
+- Promotes knowledge sharing
+- Helps SOCs prepare for audits or tabletop exercises
+
+---
+
+## Author
+**Armand Williams** | Cybersecurity Professional
+
