@@ -14,8 +14,8 @@ This repository provides step-by-step guidance on handling different types of in
 
 | Playbook | Description |
 |----------|-------------|
-| Phishing-Email.md             | Handle Phishing email reports and user-submitted threats. |
-| Malware-Infection-Playbook.md | Handle malware infection alerts/incidents                 |
+| [Phishing-Email.md] (Incident-Response-Playbooks/Phishing-Email.md)         | Handle Phishing email reports and user-submitted threats. |
+| Malware-Infection-Playbook.md | Handle malware infection alerts/incidents   |
 
 ---
 
