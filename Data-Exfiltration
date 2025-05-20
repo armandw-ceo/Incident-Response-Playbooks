@@ -1,102 +1,82 @@
-# 🛡️ Data Exfiltration Incident Response Playbook
+# Malware Infection Incident Response Playbook
 
-## 🔍 1. Detection
+## 1. Detection
 
-### ✅ Detection Checklist
-- [ ] SIEM alerts for large data transfers or abnormal file access
-- [ ] DLP (Data Loss Prevention) tool triggers on sensitive file movement
-- [ ] Unusual outbound network traffic (e.g., cloud uploads, FTP/SFTP, Tor)
-- [ ] Access of sensitive files outside normal working hours
-- [ ] Detection of known exfiltration tools or malware (e.g., C2 communication)
-- [ ] Alerts from cloud service logs (e.g., Google Drive, OneDrive, Box)
+- User reported downloading malicious file or clicking malicious link
+- Antivirus/EDR alert triggered 
+- SIEM alert from log correlation
+- IDS/IPS alert detected 
+- Suspicious process execution
+- Abnormal behavior on an endpoint
 
 ### Logs/Tools to Use:
-- SIEM (Splunk, QRadar, ELK)
-- DLP systems (Symantec, Microsoft Purview, Forcepoint)
-- EDR/AV logs
-- Firewall and proxy logs
-- Cloud audit logs (e.g., Google Workspace, M365, AWS)
+- EDR console (file behaviors, processes, network calls)
+- Windows Event Logs (4688, 4624, 7045, 1102)
+- Sysmon (process trees, hash detection)
+- DNS and firewall logs (malicious domains, C2 traffic)
 
 ---
 
-## 🧪 2. Investigation
+## 2. Investigation
 
-### Key Actions:
-- Identify systems or users involved in data access or movement
-- Determine what data was accessed or copied
-- Analyze outbound traffic destinations, volume, and protocols
-- Match access times with user working hours or behavioral baselines
-- Review file-level access logs (file shares, SharePoint, OneDrive, etc.)
-- Search for tools used to compress, encrypt, or stage data for exfil
-
-### Tools:
-- DLP console for alerts and file tracking
-- Cloud service logs (e.g., AWS CloudTrail, GDrive audit)
-- Firewall/NetFlow data
-- EDR agent history
-- Threat intel feeds to check IPs or destinations
+- Identify affected systems and users
+- Analyze file hashes and compare with threat intelligence feeds
+- Review endpoint process trees and scheduled tasks
+- Examine:
+  - Recent downloads or suspicious binaries
+  - Registry run keys or autoruns
+  - Outbound traffic to suspicious IPs/domains
 
 ---
 
-## 🚨 3. Containment
+## 3. Containment
 
-### Immediate Steps:
-- Block ongoing data transfers or exfiltration channels (e.g., FTP, cloud app access)
-- Disable compromised user accounts or isolate affected systems
-- Revoke API tokens or third-party app integrations
-- Quarantine any malware or staging scripts
-- Restrict egress traffic or apply temporary firewall rules
-
----
-
-## 🔧 4. Eradication
-
-### Removal Tasks:
-- Remove exfiltration tools or malware from endpoints
-- Disable or uninstall malicious applications or browser extensions
-- Reset credentials and tokens used in unauthorized transfers
-- Patch vulnerabilities (if exploited to gain access)
-- Remove or archive logs from unauthorized applications/scripts
+- Isolate infected hosts from the network 
+- Block known malicious IPs/domains at firewall or DNS level
+- Quarantine detected malware via AV/EDR
+- Disable compromised user accounts temporarily (if applicable)
+- Stop suspicious processes or services
 
 ---
 
-## 🔁 5. Recovery
+## 4. Eradication
 
-### Restore Normal Operations:
-- Re-enable accounts or access only after validating integrity
-- Reconfigure cloud or on-prem access control policies
-- Resume business operations with additional monitoring
-- Restore user trust (if impacted)
-- Ensure logging and DLP protections are active and effective
-
----
-
-## 📝 6. Lessons Learned
-
-### Post-Incident Activities:
-- Determine root cause and impact (What data? Who? How?)
-- Update DLP policies or SIEM detection rules
-- Conduct user awareness training (especially around file sharing)
-- Improve visibility into sensitive file access and movement
-- Update playbooks and conduct internal briefing
+- Use EDR/AV to remove malware from infected hosts
+- Remove persistence mechanisms:
+  - Scheduled tasks
+  - Run keys
+  - Malicious services
+- Clean temp directories and user profiles
+- Reimage if infection is deep or cleanup is unreliable
 
 ---
 
-## 📂 Metadata
+## 5. Recovery
 
-| Field         | Value                                        |
-|---------------|-----------------------------------------------|
-| Incident Type | Data Exfiltration                             |
-| Severity      | High (especially if sensitive data involved)  |
-| TLP Label     | TLP:CLEAR                                     |
-| Last Updated  | 2025-05-17                                    |
-| Author        | Armand Williams                               |
+- Patch exploited vulnerabilities (if any)
+- Restore affected files/systems from backups (after validation)
+- Reconnect isolated systems only after clearing infection
+- Re-enable disabled accounts with updated credentials (if needed)
+- Monitor previously affected systems closely for signs of reinfection
 
 ---
 
-## 📚 References
-- [NIST SP 800-61 Rev. 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) – Incident Handling Guide  
-- [MITRE ATT&CK: Exfiltration Techniques](https://attack.mitre.org/tactics/TA0010/)  
-- [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/sites/default/files/publications/insider-threat-mitigation-guide-508.pdf)  
-- [Microsoft Purview DLP Docs](https://learn.microsoft.com/en-us/microsoft-365/compliance/dlp-learn-about-dlp)
+## 6. Lessons Learned
 
+- Perform a root cause analysis: How did the malware enter?
+- Document all actions taken and incident timeline
+- Update SIEM rules or EDR policies to improve detection
+- Conduct a tabletop exercise or simulation based on the incident
+- Reinforce user awareness and phishing training
+
+---
+
+## Metadata
+
+| Field         | Value                                 |
+|---------------|----------------------------------------|
+| Incident Type | Malware Infection                     |
+| Severity      | Medium / High (depending on impact)   |
+| TLP Label     | TLP:CLEAR                             |
+| Last Updated  | 2025-05-16                            |
+| Author        | Armand Williams                       |
