@@ -1,0 +1,102 @@
+# 🛡️ Data Exfiltration Incident Response Playbook
+
+## 🔍 1. Detection
+
+### ✅ Detection Checklist
+- [ ] SIEM alerts for large data transfers or abnormal file access
+- [ ] DLP (Data Loss Prevention) tool triggers on sensitive file movement
+- [ ] Unusual outbound network traffic (e.g., cloud uploads, FTP/SFTP, Tor)
+- [ ] Access of sensitive files outside normal working hours
+- [ ] Detection of known exfiltration tools or malware (e.g., C2 communication)
+- [ ] Alerts from cloud service logs (e.g., Google Drive, OneDrive, Box)
+
+### Logs/Tools to Use:
+- SIEM (Splunk, QRadar, ELK)
+- DLP systems (Symantec, Microsoft Purview, Forcepoint)
+- EDR/AV logs
+- Firewall and proxy logs
+- Cloud audit logs (e.g., Google Workspace, M365, AWS)
+
+---
+
+## 🧪 2. Investigation
+
+### Key Actions:
+- Identify systems or users involved in data access or movement
+- Determine what data was accessed or copied
+- Analyze outbound traffic destinations, volume, and protocols
+- Match access times with user working hours or behavioral baselines
+- Review file-level access logs (file shares, SharePoint, OneDrive, etc.)
+- Search for tools used to compress, encrypt, or stage data for exfil
+
+### Tools:
+- DLP console for alerts and file tracking
+- Cloud service logs (e.g., AWS CloudTrail, GDrive audit)
+- Firewall/NetFlow data
+- EDR agent history
+- Threat intel feeds to check IPs or destinations
+
+---
+
+## 🚨 3. Containment
+
+### Immediate Steps:
+- Block ongoing data transfers or exfiltration channels (e.g., FTP, cloud app access)
+- Disable compromised user accounts or isolate affected systems
+- Revoke API tokens or third-party app integrations
+- Quarantine any malware or staging scripts
+- Restrict egress traffic or apply temporary firewall rules
+
+---
+
+## 🔧 4. Eradication
+
+### Removal Tasks:
+- Remove exfiltration tools or malware from endpoints
+- Disable or uninstall malicious applications or browser extensions
+- Reset credentials and tokens used in unauthorized transfers
+- Patch vulnerabilities (if exploited to gain access)
+- Remove or archive logs from unauthorized applications/scripts
+
+---
+
+## 🔁 5. Recovery
+
+### Restore Normal Operations:
+- Re-enable accounts or access only after validating integrity
+- Reconfigure cloud or on-prem access control policies
+- Resume business operations with additional monitoring
+- Restore user trust (if impacted)
+- Ensure logging and DLP protections are active and effective
+
+---
+
+## 📝 6. Lessons Learned
+
+### Post-Incident Activities:
+- Determine root cause and impact (What data? Who? How?)
+- Update DLP policies or SIEM detection rules
+- Conduct user awareness training (especially around file sharing)
+- Improve visibility into sensitive file access and movement
+- Update playbooks and conduct internal briefing
+
+---
+
+## 📂 Metadata
+
+| Field         | Value                                        |
+|---------------|-----------------------------------------------|
+| Incident Type | Data Exfiltration                             |
+| Severity      | High (especially if sensitive data involved)  |
+| TLP Label     | TLP:CLEAR                                     |
+| Last Updated  | 2025-05-17                                    |
+| Author        | Armand Williams                               |
+
+---
+
+## 📚 References
+- [NIST SP 800-61 Rev. 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) – Incident Handling Guide  
+- [MITRE ATT&CK: Exfiltration Techniques](https://attack.mitre.org/tactics/TA0010/)  
+- [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/sites/default/files/publications/insider-threat-mitigation-guide-508.pdf)  
+- [Microsoft Purview DLP Docs](https://learn.microsoft.com/en-us/microsoft-365/compliance/dlp-learn-about-dlp)
+
